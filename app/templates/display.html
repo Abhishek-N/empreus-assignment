@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Classes</title>
+  </head>
+  <body>
+    <div class="container">
+      {% for cur_class in classes %}
+      <div class="card">
+        <div class="title">
+          <h3>{{cur_class.title}}</h3>
+        </div>
+        <div class="bottom-section">
+          <div class="image">
+            <img src="{{cur_class.img_url}}" alt="profile photo" />
+          </div>
+          <div class="data">
+            <div class="author_and_data">
+              <div>By: {{cur_class.author}}</div>
+              &nbsp;|&nbsp;
+              <div>{{cur_class.date}}</div>
+            </div>
+            <div class="time_data">
+              <div>Duration: {{cur_class.duration}} Minutes</div>
+              &nbsp;|&nbsp;
+              <div>
+                Time: {{cur_class.from_time}} {{cur_class.from_time_zone}}
+              </div>
+              &nbsp;|&nbsp;
+              <div>{{cur_class.to_time}} {{cur_class.to_time_zone}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </body>
+</html>
+
+<style>
+  .container {
+    max-width: 1280px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+  .card {
+    --tw-border-opacity: 1;
+    border: 1px solid rgba(209, 213, 219, var(--tw-border-opacity));
+    padding: 14px;
+    border-radius: 4px;
+    --tw-bg-opacity: 1;
+    background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
+    --tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+      var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    color: #264471;
+  }
+  .bottom-section {
+    margin-top: 4px;
+    display: flex;
+  }
+  .image {
+    width: 20%;
+  }
+  .data {
+    width: 80%;
+  }
+  .image > img {
+    width: 65px;
+    height: 100px;
+    object-fit: cover;
+    --tw-border-opacity: 1;
+    border: 1px solid rgba(209, 213, 219, var(--tw-border-opacity));
+    padding: 2px;
+    border-radius: 2px;
+  }
+  .author_and_data {
+    display: flex;
+    font-weight: 600;
+  }
+  .time_data {
+    display: flex;
+  }
+</style>

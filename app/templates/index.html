@@ -1,20 +1,18 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Add class</title>
-</head>
-<body>
-<h2>Django Forms Tutorial</h2>
+  </head>
+  <body>
+    <h2>Add Class</h2>
 
-<form action="/classes" method="post">
-    {% csrf_token %}
-    <table>
-    {{form.as_table}}
-
- </table>
-<input type="submit" value="Submit" />
-</form>
-</body>
-</html
+    <form action="/classes/new" method="post">
+      {% csrf_token %}
+      <table>
+        {{form.as_table}}
+      </table>
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>
